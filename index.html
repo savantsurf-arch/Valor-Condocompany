@@ -14,7 +14,21 @@
   <meta name="theme-color" content="#0B1522">
 
   <!-- Favicon Dinâmico -->
-  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/logo.png">
+
+  <!-- Fallback Resiliente de Assets via CDN Global (Garante 100% de disponibilidade) -->
+  <script>
+    window.addEventListener('error', function(e) {
+      const target = e.target;
+      if (target && target.tagName === 'IMG' && !target.dataset.fallback) {
+        target.dataset.fallback = 'true';
+        const src = target.getAttribute('src');
+        if (src && !src.startsWith('http') && !src.startsWith('data:')) {
+          target.src = 'https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/' + src.replace(/^\.?\//, '');
+        }
+      }
+    }, true);
+  </script>
 
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -283,7 +297,7 @@
       
       <!-- LOGO VALOR CONDOCOMPANY OFICIAL -->
       <a href="#" class="flex items-center gap-3 group">
-        <img src="assets/logo.png" alt="Valor Condocompany - BPO e Gestão Condominial" class="h-9 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-200">
+        <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/logo.png" alt="Valor Condocompany - BPO e Gestão Condominial" class="h-9 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-200">
       </a>
 
       <!-- CONTATOS & BOTÃO DE AÇÃO DO TOPO -->
@@ -315,8 +329,11 @@
       
       <!-- VÍDEO DE FUNDO DO HERO (SEM ÁUDIO, SEM MARCA D'ÁGUA, REPRODUÇÃO CONTÍNUA) -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none -z-0">
-        <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" class="w-full h-full object-cover object-center filter brightness-[0.80] contrast-[1.08]">
-          <source src="assets/hero-video.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline poster="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/hero-poster.jpg"
+               onerror="if(this.poster && !this.dataset.posterFallback){this.dataset.posterFallback='1';this.poster='https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/hero-poster.jpg';}"
+               class="w-full h-full object-cover object-center filter brightness-[0.80] contrast-[1.08]">
+          <source src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/hero-video.mp4" type="video/mp4">
+          <source src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/hero-video.mp4" type="video/mp4">
         </video>
         
         <!-- Máscara Neutra e Suave de Legibilidade (Sem fundo azul pesado) -->
@@ -564,7 +581,7 @@
           <div class="lg:col-span-5">
             <div class="relative rounded-2xl overflow-hidden shadow-2xl group border-2 border-slate-200 cursor-pointer" onclick="openWa('Gostaria de agendar uma demonstração online da gestão Valor Condocompany')">
               
-              <img src="assets/itabuna-rio.jpg" alt="Estrutura da Valor Condocompany" class="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.75]" />
+              <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/itabuna-rio.jpg" alt="Estrutura da Valor Condocompany" class="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.75]" />
               
               <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-navy/40 to-transparent"></div>
 
@@ -621,7 +638,7 @@
               </div>
 
               <div class="my-4 rounded-xl overflow-hidden h-44 relative group">
-                <img src="assets/segment-residencial-horiz.jpg" alt="Condomínio Residencial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/segment-residencial-horiz.jpg" alt="Condomínio Residencial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
                 <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-xs">
                   Residencial
                 </div>
@@ -659,7 +676,7 @@
               </div>
 
               <div class="my-4 rounded-xl overflow-hidden h-44 relative group">
-                <img src="assets/segment-multicondominios.jpg" alt="Gestão Multicondomínios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/segment-multicondominios.jpg" alt="Gestão Multicondomínios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
                 <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-xs">
                   Gestão Multicondomínios
                 </div>
@@ -693,7 +710,7 @@
               </div>
 
               <div class="my-4 rounded-xl overflow-hidden h-44 relative group">
-                <img src="assets/segment-corporativo.jpg" alt="Edifícios Corporativos e Empresariais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/segment-corporativo.jpg" alt="Edifícios Corporativos e Empresariais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
                 <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-xs">
                   Edifícios Corporativos
                 </div>
@@ -868,7 +885,7 @@
             <!-- CARD 1: Portaria e Atendimento (Foto 6) -->
             <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="portaria">
               <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
-                <img src="assets/team/clean_Foto6.jpeg" alt="Colaborador de Atendimento e Portaria" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/team/clean_Foto6.jpeg" alt="Colaborador de Atendimento e Portaria" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
                 <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
                   ● Portaria Humanizada
@@ -891,7 +908,7 @@
             <!-- CARD 2: Central de Monitoramento & CFTV (Foto 4) -->
             <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="seguranca">
               <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
-                <img src="assets/team/clean_Foto4.jpeg" alt="Operador da Central de Monitoramento e CFTV" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/team/clean_Foto4.jpeg" alt="Operador da Central de Monitoramento e CFTV" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
                 <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
                   ● Monitoramento Ativo
@@ -914,7 +931,7 @@
             <!-- CARD 3: Supervisão & Apoio Administrativo (Foto 5) -->
             <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="gestao">
               <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
-                <img src="assets/team/clean_Foto5.jpeg" alt="Colaborador de Apoio Operacional e Administrativo" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/team/clean_Foto5.jpeg" alt="Colaborador de Apoio Operacional e Administrativo" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
                 <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
                   ● Apoio ao Síndico
@@ -937,7 +954,7 @@
             <!-- CARD 4: Zeladoria e Áreas Comuns (Foto 3) -->
             <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="zeladoria">
               <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
-                <img src="assets/team/clean_Foto3.jpeg" alt="Zeladoria e conservação das áreas comuns" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/team/clean_Foto3.jpeg" alt="Zeladoria e conservação das áreas comuns" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
                 <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
                   ● Conservação Predial
@@ -960,7 +977,7 @@
             <!-- CARD 5: Higienização e Cuidados Especializados (Foto 1) -->
             <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="zeladoria">
               <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
-                <img src="assets/team/clean_Foto1.jpeg" alt="Higienização especializada das instalações" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/team/clean_Foto1.jpeg" alt="Higienização especializada das instalações" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
                 <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
                   ● Padrão Profissional
@@ -983,7 +1000,7 @@
             <!-- CARD 6: Gestão de Resíduos e Organização (Foto 7) -->
             <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="zeladoria">
               <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
-                <img src="assets/team/clean_Foto7.jpeg" alt="Gestão de resíduos e organização predial" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/team/clean_Foto7.jpeg" alt="Gestão de resíduos e organização predial" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
                 <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
                   ● Organização Predial
@@ -1269,7 +1286,7 @@
           <div class="bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
               <div class="mb-4">
-                <img src="assets/logo.png" alt="Valor Condocompany" class="h-9 sm:h-10 w-auto object-contain">
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/logo.png" alt="Valor Condocompany" class="h-9 sm:h-10 w-auto object-contain">
               </div>
               <h3 class="text-sm font-black text-brand-blue uppercase tracking-wider mb-2">
                 Expertise & Gestão Condominial
@@ -1286,7 +1303,7 @@
             </div>
 
             <div class="rounded-xl overflow-hidden h-36 border border-slate-200 shadow-inner">
-              <img src="assets/itabuna.jpg" alt="Itabuna Sede Valorco" class="w-full h-full object-cover" />
+              <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/itabuna.jpg" alt="Itabuna Sede Valorco" class="w-full h-full object-cover" />
             </div>
           </div>
 
@@ -1458,7 +1475,7 @@
         <div>
           <div class="flex items-center justify-center sm:justify-start gap-3 mb-2">
             <div class="bg-white px-3 py-1.5 rounded-xl inline-block shadow-xs">
-              <img src="assets/logo.png" alt="Valor Condocompany" class="h-7 w-auto object-contain">
+              <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/logo.png" alt="Valor Condocompany" class="h-7 w-auto object-contain">
             </div>
             <span class="text-white font-bold text-xs uppercase tracking-wider">Itabuna - BA</span>
           </div>
