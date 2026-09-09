@@ -19,9 +19,22 @@ const MIME_TYPES = {
   '.webm': 'video/webm'
 };
 
+const CDN_BASE = 'https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main';
+
 const server = http.createServer((req, res) => {
   let reqPath = req.url.split('?')[0];
   if (reqPath === '/') reqPath = '/index.html';
+
+  // Redirecionamento instantâneo para CDN Global caso o asset seja solicitado
+  if (reqPath.startsWith('/assets/')) {
+    res.writeHead(302, {
+      'Location': CDN_BASE + reqPath,
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'public, max-age=31536000'
+    });
+    res.end();
+    return;
+  }
 
   const filePath = path.join(PUBLIC_DIR, reqPath);
 
@@ -46,38 +59,20 @@ const server = http.createServer((req, res) => {
 
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
-    const range = req.headers.range;
 
-    // Suporte a HTTP Range Requests para Streaming de Vídeo HTML5
-    if (range && (ext === '.mp4' || ext === '.webm')) {
-      const parts = range.replace(/bytes=/, "").split("-");
-      const start = parseInt(parts[0], 10);
-      const end = parts[1] ? parseInt(parts[1], 10) : stats.size - 1;
-      const chunksize = (end - start) + 1;
-      const file = fs.createReadStream(filePath, { start, end });
-
-      res.writeHead(206, {
-        'Content-Range': `bytes ${start}-${end}/${stats.size}`,
-        'Accept-Ranges': 'bytes',
-        'Content-Length': chunksize,
-        'Content-Type': contentType,
-        'Access-Control-Allow-Origin': '*'
-      });
-      file.pipe(res);
-    } else {
-      res.writeHead(200, {
-        'Content-Length': stats.size,
-        'Content-Type': contentType,
-        'Accept-Ranges': 'bytes',
-        'Cache-Control': 'no-cache',
-        'Access-Control-Allow-Origin': '*'
-      });
-      fs.createReadStream(filePath).pipe(res);
-    }
+    res.writeHead(200, {
+      'Content-Length': stats.size,
+      'Content-Type': contentType,
+      'Accept-Ranges': 'bytes',
+      'Cache-Control': 'public, max-age=3600',
+      'Access-Control-Allow-Origin': '*'
+    });
+    fs.createReadStream(filePath).pipe(res);
   });
 });
 
 server.listen(PORT, () => {
   console.log(`🚀 Servidor da Valorco rodando em: http://localhost:${PORT}`);
-  console.log(`Portas proibidas (3000 e 8080) respeitadas com sucesso.`);
 });
+
+module.exports = server;
