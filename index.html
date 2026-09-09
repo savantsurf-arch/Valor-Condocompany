@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Valor Condocompany | BPO Financeiro & Gestão Condominial</title>
+  
+  <!-- Meta Tags CRO & SEO -->
+  <meta name="description" content="Gestão e BPO Condominial de excelência com a Valor Condocompany. Emissão pontual de boletos via PIX, redução de inadimplência e suporte humanizado em Itabuna e região.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Valor Condocompany - BPO & Gestão Condominial">
+  <meta property="og:description" content="Mantenha as contas do condomínio no azul e o síndico tranquilo. Atendimento rápido e humanizado no WhatsApp.">
+  <meta property="og:url" content="https://valorco.com.br">
+  <meta name="theme-color" content="#0B1522">
+
+  <!-- Favicon Dinâmico -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN com Paleta Oficial Baseada na Logo -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0B1522',        // Grafite/Azul Profundo do fundo
+              navy: '#0F1E2E',        // Azul Petróleo Institucional
+              navyLight: '#182C42',
+              blue: '#4A88CE',        // AZUL OFICIAL DA LOGO (Telhado na letra 'O')
+              blueHover: '#3875B8',
+              blueDark: '#285F99',
+              blueLight: '#EDF4FC',   // Azul Gelo suave para backgrounds e badges
+              gray: '#818285',        // CINZA OFICIAL DA LOGO ('CONDOCOMPANY')
+              grayLight: '#F3F4F6',
+              border: '#E2E8F0',
+              waGreen: '#25D366',     // Verde Oficial WhatsApp (CRO Action)
+              waGreenHover: '#1EBE5D',
+              surface: '#F8FAFC',
+              textDark: '#0B1522',
+              textMuted: '#64748B'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif']
+          },
+          boxShadow: {
+            'card': '0 10px 30px -5px rgba(11, 21, 34, 0.08), 0 4px 12px -2px rgba(11, 21, 34, 0.03)',
+            'blue': '0 10px 25px -4px rgba(74, 136, 206, 0.45)',
+            'wa': '0 12px 28px -4px rgba(37, 211, 102, 0.5)',
+            'float': '0 18px 40px -4px rgba(37, 211, 102, 0.6)'
+          },
+          animation: {
+            'kenburns': 'kenBurnsItabuna 26s ease-in-out infinite alternate',
+            'pulse-soft': 'pulseSoft 2.5s infinite',
+            'radar': 'radar 2s cubic-bezier(0, 0, 0.2, 1) infinite'
+          },
+          keyframes: {
+            kenBurnsItabuna: {
+              '0%': { transform: 'scale(1.04) translate(0%, 0%)' },
+              '50%': { transform: 'scale(1.18) translate(-2%, -1.5%)' },
+              '100%': { transform: 'scale(1.10) translate(2%, 1%)' }
+            },
+            pulseSoft: {
+              '0%, 100%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.02)' }
+            },
+            radar: {
+              '0%': { transform: 'scale(0.95)', opacity: '0.85' },
+              '100%': { transform: 'scale(2.2)', opacity: '0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { -webkit-tap-highlight-color: transparent; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    .itabuna-hero-bg {
+      will-change: transform;
+      transform-origin: center center;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #4A88CE;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(74, 136, 206, 0.5);
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-brand-textDark antialiased selection:bg-brand-blue selection:text-white pb-16 md:pb-0">
+
+  <!-- ========================================================== -->
+  <!-- CONFIGURAÇÕES CENTRAIS & SCRIPTS DE CONVERSÃO             -->
+  <!-- ========================================================== -->
+  <script>
+    const VALORCO = {
+      phone: "557330266726", // WhatsApp Oficial (73) 3026-6726
+      phoneDisplay: "(73) 3026-6726",
+      email: "valor@valorco.com.br",
+      instagram: "https://instagram.com/acondadministracao",
+      defaultMsg: "Olá! Gostaria de solicitar uma proposta de BPO e gestão para o meu condomínio."
+    };
+
+    function openWa(customMsg) {
+      const text = encodeURIComponent(customMsg || VALORCO.defaultMsg);
+      window.open(`https://wa.me/${VALORCO.phone}?text=${text}`, '_blank', 'noopener,noreferrer');
+      return false;
+    }
+
+    // Formulário Hero com disparo formatado no WhatsApp
+    function submitHeroForm(e) {
+      e.preventDefault();
+      const nome = document.getElementById('hero-nome').value.trim();
+      const whatsapp = document.getElementById('hero-whatsapp').value.trim();
+      const condominio = document.getElementById('hero-condominio').value.trim();
+      const perfil = document.getElementById('hero-perfil').value;
+      const unidades = document.getElementById('hero-unidades').value;
+
+      let msg = `Olá! Gostaria de uma proposta de gestão para o meu condomínio:\n\n`;
+      msg += `*Nome:* ${nome || 'Não informado'}\n`;
+      msg += `*WhatsApp:* ${whatsapp || 'Não informado'}\n`;
+      msg += `*Condomínio:* ${condominio || 'Em Itabuna/Região'}\n`;
+      msg += `*Perfil:* ${perfil}\n`;
+      if (unidades) msg += `*Unidades:* ${unidades}\n`;
+      msg += `\nVi a página da Valor Condocompany e aguardo contato com a proposta!`;
+
+      openWa(msg);
+      return false;
+    }
+
+    // Calculadora de Diagnóstico Condominial
+    function updateSimulacao() {
+      const slider = document.getElementById('sim-unidades');
+      const unidades = parseInt(slider.value, 10);
+      document.getElementById('sim-unidades-val').innerText = `${unidades} unidades`;
+      
+      const inadimplenciaEstimada = unidades * 480 * 0.18;
+      const horasEconomizadas = Math.round(unidades * 0.45);
+
+      document.getElementById('sim-economia').innerText = `R$ ${Math.round(inadimplenciaEstimada).toLocaleString('pt-BR')}/mês`;
+      document.getElementById('sim-horas').innerText = `${horasEconomizadas}h livres/mês`;
+    }
+
+    // Cronômetro Regressivo da Condição Especial
+    function startCountdown() {
+      let d = 8, h = 14, m = 27, s = 36;
+      setInterval(() => {
+        if (s > 0) { s--; }
+        else {
+          s = 59;
+          if (m > 0) { m--; }
+          else {
+            m = 59;
+            if (h > 0) { h--; }
+            else {
+              h = 23;
+              if (d > 0) d--;
+            }
+          }
+        }
+        document.getElementById('timer-d').innerText = String(d).padStart(2, '0');
+        document.getElementById('timer-h').innerText = String(h).padStart(2, '0');
+        document.getElementById('timer-m').innerText = String(m).padStart(2, '0');
+        document.getElementById('timer-s').innerText = String(s).padStart(2, '0');
+      }, 1000);
+    }
+
+    // Carousel e Filtro da Equipe de Colaboradores
+    let teamAutoScroll;
+    function initTeamCarousel() {
+      const track = document.getElementById('team-track');
+      const dotsContainer = document.getElementById('team-dots');
+      if (!track || !dotsContainer) return;
+
+      const cards = track.querySelectorAll('.team-card');
+      if (!cards.length) return;
+      dotsContainer.innerHTML = '';
+      
+      cards.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = `h-2 rounded-full transition-all duration-300 ${idx === 0 ? 'w-8 bg-brand-blue' : 'w-2 bg-white/30 hover:bg-white/60'}`;
+        dot.setAttribute('aria-label', `Ir para foto ${idx + 1}`);
+        dot.onclick = () => {
+          const cardWidth = cards[0].offsetWidth + 24;
+          track.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+        };
+        dotsContainer.appendChild(dot);
+      });
+
+      track.addEventListener('scroll', () => {
+        const cardWidth = cards[0].offsetWidth + 24;
+        const activeIdx = Math.round(track.scrollLeft / cardWidth);
+        const dots = dotsContainer.querySelectorAll('button');
+        dots.forEach((d, i) => {
+          if (i === activeIdx) {
+            d.className = 'w-8 h-2 rounded-full transition-all duration-300 bg-brand-blue';
+          } else {
+            d.className = 'w-2 h-2 rounded-full transition-all duration-300 bg-white/30 hover:bg-white/60';
+          }
+        });
+      });
+
+      function startAuto() {
+        clearInterval(teamAutoScroll);
+        teamAutoScroll = setInterval(() => {
+          const cardWidth = cards[0].offsetWidth + 24;
+          const maxScroll = track.scrollWidth - track.clientWidth;
+          if (track.scrollLeft >= maxScroll - 10) {
+            track.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+          }
+        }, 5000);
+      }
+
+      track.addEventListener('mouseenter', () => clearInterval(teamAutoScroll));
+      track.addEventListener('touchstart', () => clearInterval(teamAutoScroll), { passive: true });
+      track.addEventListener('mouseleave', startAuto);
+      startAuto();
+    }
+
+    function scrollTeam(direction) {
+      const track = document.getElementById('team-track');
+      if (!track) return;
+      const card = track.querySelector('.team-card');
+      const amount = (card ? card.offsetWidth : 320) + 24;
+      track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+    }
+
+    function filterTeam(category, btn) {
+      const track = document.getElementById('team-track');
+      if (!track) return;
+
+      const buttons = document.querySelectorAll('.team-filter-btn');
+      buttons.forEach(b => {
+        b.className = 'team-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10';
+      });
+      btn.className = 'team-filter-btn active-filter px-4 py-2 rounded-full text-xs font-bold transition-all bg-brand-blue text-white shadow-blue';
+
+      const cards = track.querySelectorAll('.team-card');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (category === 'all' || cat === category) {
+          card.style.display = 'flex';
+          card.classList.remove('hidden');
+        } else {
+          card.style.display = 'none';
+          card.classList.add('hidden');
+        }
+      });
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      startCountdown();
+      updateSimulacao();
+      initTeamCarousel();
+    });
+  </script>
+
+  <!-- ========================================================== -->
+  <!-- [HEADER FIXO SUPERIOR] COM A LOGO OFICIAL                  -->
+  <!-- ========================================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- LOGO VALOR CONDOCOMPANY OFICIAL -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="assets/logo.png" alt="Valor Condocompany - BPO e Gestão Condominial" class="h-9 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-200">
+      </a>
+
+      <!-- CONTATOS & BOTÃO DE AÇÃO DO TOPO -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <div class="hidden lg:flex flex-col text-right">
+          <span class="text-[11px] text-brand-gray font-medium">Itabuna & Região</span>
+          <span class="text-xs font-bold text-emerald-600 flex items-center gap-1 justify-end">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> (73) 3026-6726
+          </span>
+        </div>
+
+        <button onclick="openWa('Olá! Vi o site e gostaria de solicitar uma proposta da Valor Condocompany.')" 
+                class="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blueHover active:scale-95 text-white font-bold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-xl shadow-blue transition-all">
+          <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>Pedir Proposta</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================== -->
+    <!-- [SEÇÃO 1: HERO COM VÍDEO DO CONDOMÍNIO (SEM MARCA D'ÁGUA)] -->
+    <!-- ========================================================== -->
+    <section class="relative pt-24 sm:pt-28 pb-14 sm:pb-20 bg-slate-950 text-white overflow-hidden">
+      
+      <!-- VÍDEO DE FUNDO DO HERO (SEM ÁUDIO, SEM MARCA D'ÁGUA, REPRODUÇÃO CONTÍNUA) -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none -z-0">
+        <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" class="w-full h-full object-cover object-center filter brightness-[0.80] contrast-[1.08]">
+          <source src="assets/hero-video.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Máscara Neutra e Suave de Legibilidade (Sem fundo azul pesado) -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/30"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- COLUNA ESQUERDA: HEADLINE & BENEFÍCIOS -->
+          <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+            
+            <!-- Badges de Localização e Status -->
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full text-xs font-semibold">
+              <span class="w-2 h-2 rounded-full bg-brand-blue animate-ping"></span>
+              <span class="text-sky-300 font-bold">Itabuna & Sul da Bahia</span>
+              <span class="text-white/30">|</span>
+              <span class="text-slate-200">Atendimento 100% Humanizado</span>
+            </div>
+
+            <!-- Headline com Gradiente do Azul da Logo (#4A88CE) -->
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+              GESTÃO E BPO CONDOMINIAL <br class="hidden sm:inline">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-brand-blue to-blue-200">
+                SEM DOR DE CABEÇA
+              </span> PARA O SEU CONDOMÍNIO
+            </h1>
+
+            <!-- Subtítulo Objetivo -->
+            <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-xl">
+              Cuidamos da emissão de boletos, inadimplência, pagamentos e rotinas administrativas para manter as contas em dia e o síndico tranquilo.
+            </p>
+
+            <!-- Pills Limpas e Elegantes (Sem Ícones Clipart) -->
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-semibold text-slate-200">
+              <span class="bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-lg">
+                Emissão PIX & Boleto
+              </span>
+              <span class="bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-lg">
+                -42% Inadimplência
+              </span>
+              <span class="bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-lg">
+                Pastas 100% Digitais
+              </span>
+              <span class="bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-lg">
+                Suporte Jurídico Especializado
+              </span>
+            </div>
+
+            <!-- Linha de 4 Benefícios com Tipografia Limpa -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/15">
+              <div class="text-left">
+                <p class="text-[11px] text-brand-blue font-bold uppercase tracking-wider">Sem Robôs</p>
+                <p class="text-xs sm:text-sm font-bold text-white mt-0.5">WhatsApp Direto</p>
+              </div>
+
+              <div class="text-left">
+                <p class="text-[11px] text-brand-blue font-bold uppercase tracking-wider">Assembleias</p>
+                <p class="text-xs sm:text-sm font-bold text-white mt-0.5">Pastas no Prazo</p>
+              </div>
+
+              <div class="text-left">
+                <p class="text-[11px] text-brand-blue font-bold uppercase tracking-wider">Conciliação</p>
+                <p class="text-xs sm:text-sm font-bold text-white mt-0.5">Auditoria Diária</p>
+              </div>
+
+              <div class="text-left">
+                <p class="text-[11px] text-brand-blue font-bold uppercase tracking-wider">Diagnóstico</p>
+                <p class="text-xs sm:text-sm font-bold text-sky-300 mt-0.5">100% Gratuito</p>
+              </div>
+            </div>
+
+            <!-- Botões Duplos de Ação (Azul da Logo + WhatsApp) -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3">
+              <button onclick="openWa('Olá! Gostaria de agendar um diagnóstico gratuito para meu condomínio.')" 
+                      class="inline-flex items-center justify-center bg-brand-blue hover:bg-brand-blueHover active:scale-95 text-white font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-blue transition-all uppercase tracking-wider">
+                AGENDAR DIAGNÓSTICO
+              </button>
+
+              <button onclick="openWa('Olá! Gostaria de falar com a equipe da Valor Condocompany via WhatsApp.')" 
+                      class="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/25 text-white font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl transition-all">
+                <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span>FALAR NO WHATSAPP</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- COLUNA DIREITA: CARD DE PROPOSTA RÁPIDA (LIMPO, SEM ÍCONES DENTRO DOS INPUTS) -->
+          <div class="lg:col-span-5">
+            <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-2xl text-brand-textDark border border-slate-100">
+              
+              <div class="text-center pb-4 border-b border-slate-100">
+                <span class="text-[11px] font-bold text-brand-blue bg-brand-blueLight border border-blue-200 px-2.5 py-0.5 rounded-full uppercase">
+                  Proposta Personalizada
+                </span>
+                <h3 class="text-lg sm:text-xl font-extrabold text-brand-dark mt-1.5">
+                  Receba uma Proposta Sob Medida
+                </h3>
+                <p class="text-xs text-brand-textMuted mt-1">
+                  Preencha os dados e nosso especialista responderá no WhatsApp em minutos.
+                </p>
+              </div>
+
+              <form onsubmit="return submitHeroForm(event)" class="mt-4 space-y-3.5">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Seu Nome Completo</label>
+                  <input type="text" id="hero-nome" required placeholder="Ex: Carlos Eduardo" 
+                         class="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Número de WhatsApp</label>
+                  <input type="tel" id="hero-whatsapp" required placeholder="(73) 99999-9999" 
+                         class="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Nome do Condomínio / Cidade</label>
+                  <input type="text" id="hero-condominio" placeholder="Ex: Ed. Bela Vista - Itabuna" 
+                         class="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Seu Perfil</label>
+                    <select id="hero-perfil" class="w-full px-3 py-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-blue outline-none">
+                      <option value="Síndico Morador">Síndico Morador</option>
+                      <option value="Síndico Profissional">Síndico Profissional</option>
+                      <option value="Membro do Conselho">Membro do Conselho</option>
+                      <option value="Condômino">Condômino</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Qtd. Unidades</label>
+                    <select id="hero-unidades" class="w-full px-3 py-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-blue outline-none">
+                      <option value="Até 30 unidades">Até 30</option>
+                      <option value="31 a 80 unidades" selected>31 a 80</option>
+                      <option value="81 a 150 unidades">81 a 150</option>
+                      <option value="Mais de 150 unidades">150+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" 
+                        class="w-full tap-target inline-flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blueHover active:scale-95 text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-blue transition-all mt-2 uppercase tracking-wide">
+                  <span>PEDIR PROPOSTA AGORA</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
+
+                <p class="text-[10px] text-center text-slate-400">
+                  Seus dados são confidenciais. Resposta média em 10 minutos.
+                </p>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- [SEÇÃO 2: POR QUE ESCOLHER A VALOR CONDOCOMPANY]           -->
+    <!-- ========================================================== -->
+    <section class="py-14 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-7">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-blue">
+              Diferenciais de Excelência
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black text-brand-dark mt-1 tracking-tight">
+              POR QUE ESCOLHER A VALOR CONDOCOMPANY?
+            </h2>
+            <p class="text-xs sm:text-sm font-semibold text-brand-gray uppercase tracking-wider mb-8">
+              Expertise comprovada em rotinas condominiais
+            </p>
+
+            <!-- Grid 2x3 de Diferenciais com Numeração Limpa e Elegante -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <div class="border-l-2 border-brand-blue pl-4 py-1">
+                <span class="text-[11px] font-black text-brand-blue uppercase tracking-wider block">01. Proximidade</span>
+                <h4 class="text-sm font-bold text-brand-dark mt-0.5">Atendimento Regional</h4>
+                <p class="text-xs text-brand-textMuted mt-1 leading-relaxed">
+                  Sede própria em Itabuna com equipe presencial e conhecimento das particularidades locais.
+                </p>
+              </div>
+
+              <div class="border-l-2 border-brand-blue pl-4 py-1">
+                <span class="text-[11px] font-black text-brand-blue uppercase tracking-wider block">02. Agilidade</span>
+                <h4 class="text-sm font-bold text-brand-dark mt-0.5">WhatsApp Humanizado</h4>
+                <p class="text-xs text-brand-textMuted mt-1 leading-relaxed">
+                  Sem robôs ou menus confusos. Síndicos e moradores falam direto com quem resolve.
+                </p>
+              </div>
+
+              <div class="border-l-2 border-brand-blue pl-4 py-1">
+                <span class="text-[11px] font-black text-brand-blue uppercase tracking-wider block">03. Finanças</span>
+                <h4 class="text-sm font-bold text-brand-dark mt-0.5">Queda de Inadimplência</h4>
+                <p class="text-xs text-brand-textMuted mt-1 leading-relaxed">
+                  Régua amigável de cobrança preventiva com PIX dinâmico e código de barras.
+                </p>
+              </div>
+
+              <div class="border-l-2 border-brand-blue pl-4 py-1">
+                <span class="text-[11px] font-black text-brand-blue uppercase tracking-wider block">04. Gestão</span>
+                <h4 class="text-sm font-bold text-brand-dark mt-0.5">Transparência 100%</h4>
+                <p class="text-xs text-brand-textMuted mt-1 leading-relaxed">
+                  Relatórios gráficos e conciliação bancária diária fácil de entender pelo conselho.
+                </p>
+              </div>
+
+              <div class="border-l-2 border-brand-blue pl-4 py-1">
+                <span class="text-[11px] font-black text-brand-blue uppercase tracking-wider block">05. Organização</span>
+                <h4 class="text-sm font-bold text-brand-dark mt-0.5">Pastas Prontas no Prazo</h4>
+                <p class="text-xs text-brand-textMuted mt-1 leading-relaxed">
+                  Documentação em nuvem organizada, sem risco de perda de notas ou comprovantes.
+                </p>
+              </div>
+
+              <div class="border-l-2 border-brand-blue pl-4 py-1">
+                <span class="text-[11px] font-black text-brand-blue uppercase tracking-wider block">06. Segurança</span>
+                <h4 class="text-sm font-bold text-brand-dark mt-0.5">Apoio Jurídico Especial</h4>
+                <p class="text-xs text-brand-textMuted mt-1 leading-relaxed">
+                  Mediação de conflitos, cobranças extrajudiciais e adequação à convenção.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- LADO DIREITO: CARD VISUAL DA GESTÃO -->
+          <div class="lg:col-span-5">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl group border-2 border-slate-200 cursor-pointer" onclick="openWa('Gostaria de agendar uma demonstração online da gestão Valor Condocompany')">
+              
+              <img src="assets/itabuna-rio.jpg" alt="Estrutura da Valor Condocompany" class="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.75]" />
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-navy/40 to-transparent"></div>
+
+              <!-- Botão de Play no Azul da Logo -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-brand-blue text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                  <svg class="w-7 h-7 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-sky-200 bg-brand-blueDark/80 px-2 py-0.5 rounded">Demonstração Interativa</span>
+                <h4 class="text-base font-bold text-white mt-1">Conheça o Modelo de BPO da Valor Condocompany</h4>
+                <p class="text-xs text-slate-300">Veja como funciona a rotina financeira e o suporte ao síndico.</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- [SEÇÃO 3: MODALIDADES / PARA QUEM É (ESTILO "TIPE UNIT")]   -->
+    <!-- ========================================================== -->
+    <section class="py-14 sm:py-20 bg-[#F8FAFC] border-y border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <!-- Título com Divisores no Azul da Logo -->
+        <div class="flex items-center justify-center gap-4 mb-10">
+          <div class="h-0.5 w-12 sm:w-20 bg-brand-blue"></div>
+          <h2 class="text-xl sm:text-2xl font-black text-brand-dark uppercase tracking-wider">
+            Soluções por Perfil
+          </h2>
+          <div class="h-0.5 w-12 sm:w-20 bg-brand-blue"></div>
+        </div>
+
+        <!-- 3 CARDS LADO A LADO -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- CARD 1: SÍNDICO MORADOR -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-card hover:border-brand-blue transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div>
+                  <h3 class="font-black text-brand-dark text-base">SÍNDICO MORADOR</h3>
+                  <p class="text-xs text-brand-textMuted">Tranquilidade e Fim da Sobrecarga</p>
+                </div>
+                <span class="text-xs font-bold bg-slate-100 text-brand-gray px-2 py-1 rounded-md">Paz na Gestão</span>
+              </div>
+
+              <div class="my-4 rounded-xl overflow-hidden h-44 relative group">
+                <img src="assets/segment-residencial-horiz.jpg" alt="Condomínio Residencial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
+                <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-xs">
+                  Residencial
+                </div>
+              </div>
+
+              <ul class="text-xs text-slate-700 space-y-2">
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Elimine o atrito de cobrar vizinhos na garagem</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Finais de semana livres de planilhas manuais</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Emissão ágil de boletos com PIX Copia e Cola</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Apoio completo em assembleias e atas</li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100">
+              <button onclick="openWa('Olá! Sou síndico morador e gostaria de detalhes sobre o plano para condomínios residenciais.')" 
+                      class="w-full bg-brand-navy hover:bg-brand-navyLight text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 uppercase">
+                <span>VER DETALHES NO WHATSAPP</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- CARD 2: SÍNDICO PROFISSIONAL (DESTAQUE NO AZUL DA LOGO) -->
+          <div class="bg-white rounded-2xl border-2 border-brand-blue p-5 shadow-card relative flex flex-col justify-between">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+              Mais Solicitado
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div>
+                  <h3 class="font-black text-brand-dark text-base">SÍNDICO PROFISSIONAL</h3>
+                  <p class="text-xs text-brand-textMuted">Retaguarda Operacional & BPO</p>
+                </div>
+                <span class="text-xs font-bold bg-brand-blueLight text-brand-blue px-2 py-1 rounded-md">Escala</span>
+              </div>
+
+              <div class="my-4 rounded-xl overflow-hidden h-44 relative group">
+                <img src="assets/segment-multicondominios.jpg" alt="Gestão Multicondomínios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
+                <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-xs">
+                  Gestão Multicondomínios
+                </div>
+              </div>
+
+              <ul class="text-xs text-slate-700 space-y-2">
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Escale sua carteira sem aumentar custos fixos</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> BPO financeiro rigoroso com conciliação diária</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Pastas digitais padronizadas entregues no prazo</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Backoffice jurídico ágil para cobranças e editais</li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100">
+              <button onclick="openWa('Olá! Sou síndico profissional e gostaria de conhecer as condições especiais para múltiplos condomínios.')" 
+                      class="w-full bg-brand-blue hover:bg-brand-blueHover text-white font-extrabold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 uppercase shadow-blue">
+                <span>CONTRATAR BPO PROFISSIONAL</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- CARD 3: CONDOMÍNIOS COMERCIAIS -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-card hover:border-brand-blue transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                <div>
+                  <h3 class="font-black text-brand-dark text-base">EMPRESARIAL & MISTO</h3>
+                  <p class="text-xs text-brand-textMuted">Centros Médicos e Comerciais</p>
+                </div>
+                <span class="text-xs font-bold bg-slate-100 text-brand-gray px-2 py-1 rounded-md">Corporativo</span>
+              </div>
+
+              <div class="my-4 rounded-xl overflow-hidden h-44 relative group">
+                <img src="assets/segment-corporativo.jpg" alt="Edifícios Corporativos e Empresariais" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
+                <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-xs">
+                  Edifícios Corporativos
+                </div>
+              </div>
+
+              <ul class="text-xs text-slate-700 space-y-2">
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Gestão de fornecedores e contratos contínuos</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Controle orçamentário e fluxo de caixa detalhado</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Prestação de contas por centro de custos</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Assessoria técnica permanente</li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100">
+              <button onclick="openWa('Olá! Gostaria de uma proposta para condomínio comercial/empresarial.')" 
+                      class="w-full bg-brand-navy hover:bg-brand-navyLight text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 uppercase">
+                <span>VER DETALHES NO WHATSAPP</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- ========================================================== -->
+    <!-- [SEÇÃO 4: PRESENÇA REGIONAL & SEGURANÇA FINANCEIRA]        -->
+    <!-- ========================================================== -->
+    <section class="py-14 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          
+          <!-- COLUNA 1: ATENDIMENTO REGIONAL -->
+          <div class="space-y-4 bg-slate-50 rounded-2xl p-7 sm:p-8 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-blue">
+                Presença e Proximidade
+              </span>
+              <h3 class="text-xl sm:text-2xl font-black text-brand-dark mt-1">
+                ATENDIMENTO REGIONAL EM ITABUNA & REGIÃO
+              </h3>
+              
+              <ul class="text-xs sm:text-sm text-slate-700 space-y-3 mt-4">
+                <li class="flex items-start gap-2.5">
+                  <span class="w-2 h-2 rounded-full bg-brand-blue flex-shrink-0 mt-1.5"></span>
+                  <span><strong>Centro de Itabuna:</strong> Ed. Módulo Center, Sala 604</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-2 h-2 rounded-full bg-brand-blue flex-shrink-0 mt-1.5"></span>
+                  <span><strong>Atendimento Ágil:</strong> Visitas e reuniões presenciais</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-2 h-2 rounded-full bg-brand-blue flex-shrink-0 mt-1.5"></span>
+                  <span><strong>Cobertura Regional:</strong> Itabuna, Ilhéus e cidades vizinhas</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-2 h-2 rounded-full bg-brand-blue flex-shrink-0 mt-1.5"></span>
+                  <span><strong>Rotinas Financeiras e Cartoriais:</strong> Agilidade operacional</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-4">
+              <button onclick="openWa('Olá! Gostaria de agendar uma visita presencial com a equipe da Valor Condocompany.')" 
+                      class="bg-brand-navy hover:bg-brand-navyLight text-white text-xs sm:text-sm font-bold py-3 px-5 rounded-xl transition-all">
+                Agendar Reunião Presencial
+              </button>
+            </div>
+          </div>
+
+          <!-- COLUNA 2: SEGURANÇA FINANCEIRA -->
+          <div class="bg-gradient-to-br from-brand-navy to-brand-navyLight rounded-2xl p-7 sm:p-8 text-white shadow-card border border-white/10 flex flex-col justify-between">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-sky-300">Segurança Financeira</span>
+              <h4 class="text-xl sm:text-2xl font-black text-white mt-1">O Síndico Mantém o Controle</h4>
+              
+              <div class="mt-5 space-y-3.5 text-xs sm:text-sm text-slate-300">
+                <div class="flex items-start gap-3 bg-white/10 p-3.5 rounded-xl">
+                  <span class="text-brand-blue font-extrabold text-base">01.</span>
+                  <span>A Valorco prepara lançamentos, cobranças e conciliações diárias.</span>
+                </div>
+                <div class="flex items-start gap-3 bg-white/10 p-3.5 rounded-xl">
+                  <span class="text-brand-blue font-extrabold text-base">02.</span>
+                  <span>O síndico confere o relatório digital simplificado pelo celular.</span>
+                </div>
+                <div class="flex items-start gap-3 bg-white/10 p-3.5 rounded-xl">
+                  <span class="text-brand-blue font-extrabold text-base">03.</span>
+                  <span>Apenas o síndico autoriza os pagamentos na conta bancária do condomínio.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 flex items-center gap-2 text-xs text-slate-400">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span>Zero risco: nenhuma movimentação financeira sem sua aprovação digital.</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- [SEÇÃO: TIME DE COLABORADORES PRONTOS PARA SERVIR]         -->
+    <!-- ========================================================== -->
+    <section class="py-16 sm:py-24 bg-gradient-to-b from-[#0F1E2E] via-[#0B1522] to-[#070D15] text-white relative overflow-hidden">
+      <!-- Elementos Decorativos de Fundo -->
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-blue/15 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 w-80 h-80 bg-sky-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <!-- Cabeçalho da Seção -->
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <div class="inline-flex items-center gap-2 bg-brand-blue/20 border border-brand-blue/30 px-3.5 py-1.5 rounded-full text-xs font-bold text-sky-300 backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+            <span>Estrutura Humana & Operacional</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase leading-tight">
+            Um time de colaboradores <br class="hidden sm:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-brand-blue to-blue-200">
+              prontos para servir
+            </span>
+          </h2>
+
+          <p class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+            Profissionais uniformizados, identificados e capacitados nas rotinas do seu condomínio. Da portaria à central de monitoramento, garantimos tranquilidade e respeito diário.
+          </p>
+
+          <!-- Filtros Inteligentes de Categorias -->
+          <div class="flex flex-wrap items-center justify-center gap-2 pt-4">
+            <button onclick="filterTeam('all', this)" class="team-filter-btn active-filter px-4 py-2 rounded-full text-xs font-bold transition-all bg-brand-blue text-white shadow-blue">
+              Todos
+            </button>
+            <button onclick="filterTeam('portaria', this)" class="team-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10">
+              Portaria & Atendimento
+            </button>
+            <button onclick="filterTeam('seguranca', this)" class="team-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10">
+              Monitoramento & CFTV
+            </button>
+            <button onclick="filterTeam('gestao', this)" class="team-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10">
+              Supervisão & Apoio
+            </button>
+            <button onclick="filterTeam('zeladoria', this)" class="team-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10">
+              Conservação & Zeladoria
+            </button>
+          </div>
+        </div>
+
+        <!-- Carousel Inteligente de Cards -->
+        <div class="mt-12 relative group/carousel">
+          
+          <!-- Botões de Navegação Desktop -->
+          <button onclick="scrollTeam(-1)" aria-label="Foto anterior" 
+                  class="hidden sm:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#0B1522]/90 hover:bg-brand-blue border border-white/20 text-white items-center justify-center shadow-2xl backdrop-blur-md transition-all active:scale-95">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+
+          <button onclick="scrollTeam(1)" aria-label="Próxima foto" 
+                  class="hidden sm:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#0B1522]/90 hover:bg-brand-blue border border-white/20 text-white items-center justify-center shadow-2xl backdrop-blur-md transition-all active:scale-95">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+          </button>
+
+          <!-- Container Deslizável (Touch-friendly & Desktop Scroll) -->
+          <div id="team-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 px-2 no-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+            
+            <!-- CARD 1: Portaria e Atendimento (Foto 6) -->
+            <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="portaria">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
+                <img src="assets/team/clean_Foto6.jpeg" alt="Colaborador de Atendimento e Portaria" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
+                <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
+                  ● Portaria Humanizada
+                </div>
+              </div>
+              <div class="p-5 sm:p-6 space-y-2.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Atendimento & Recepção Cortês</h3>
+                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-1">
+                    Equipe capacitada para controle de acessos, recebimento de encomendas e recepção respeitosa de moradores e prestadores.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-semibold">
+                  <span>Equipe Uniformizada</span>
+                  <span class="text-sky-300 font-bold">100% Identificada</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 2: Central de Monitoramento & CFTV (Foto 4) -->
+            <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="seguranca">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
+                <img src="assets/team/clean_Foto4.jpeg" alt="Operador da Central de Monitoramento e CFTV" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
+                <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
+                  ● Monitoramento Ativo
+                </div>
+              </div>
+              <div class="p-5 sm:p-6 space-y-2.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Central de Câmeras & CFTV</h3>
+                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-1">
+                    Vigilância tecnológica e acompanhamento contínuo dos perímetros, portões e áreas comuns para prevenção e segurança.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-semibold">
+                  <span>Vigilância Tecnológica</span>
+                  <span class="text-emerald-400 font-bold">Prontidão 24h</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 3: Supervisão & Apoio Administrativo (Foto 5) -->
+            <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="gestao">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
+                <img src="assets/team/clean_Foto5.jpeg" alt="Colaborador de Apoio Operacional e Administrativo" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
+                <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
+                  ● Apoio ao Síndico
+                </div>
+              </div>
+              <div class="p-5 sm:p-6 space-y-2.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Supervisão & Rotinas Diárias</h3>
+                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-1">
+                    Comunicação ágil com o síndico para fiscalização de manutenções, demandas de moradores e alinhamentos operacionais.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-semibold">
+                  <span>Suporte Operacional</span>
+                  <span class="text-sky-300 font-bold">Contato Direto</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 4: Zeladoria e Áreas Comuns (Foto 3) -->
+            <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="zeladoria">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
+                <img src="assets/team/clean_Foto3.jpeg" alt="Zeladoria e conservação das áreas comuns" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
+                <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
+                  ● Conservação Predial
+                </div>
+              </div>
+              <div class="p-5 sm:p-6 space-y-2.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Zeladoria & Espaços Comuns</h3>
+                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-1">
+                    Cuidado metódico com hall de entrada, garagens, quadras e circulação para manter o patrimônio do condomínio sempre impecável.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-semibold">
+                  <span>Manutenção Preventiva</span>
+                  <span class="text-sky-300 font-bold">Ronda Periódica</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 5: Higienização e Cuidados Especializados (Foto 1) -->
+            <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="zeladoria">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
+                <img src="assets/team/clean_Foto1.jpeg" alt="Higienização especializada das instalações" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
+                <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
+                  ● Padrão Profissional
+                </div>
+              </div>
+              <div class="p-5 sm:p-6 space-y-2.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Higienização Técnica & EPIs</h3>
+                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-1">
+                    Execução rigorosa com equipamentos de segurança (EPIs), produtos regulamentados e foco na saúde e bem-estar de todos.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-semibold">
+                  <span>Normas Regulamentadoras</span>
+                  <span class="text-emerald-400 font-bold">100% em Conformidade</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 6: Gestão de Resíduos e Organização (Foto 7) -->
+            <div class="team-card flex-none w-[280px] sm:w-[360px] snap-start bg-white/[0.04] border border-white/10 hover:border-brand-blue/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between" data-category="zeladoria">
+              <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 group">
+                <img src="assets/team/clean_Foto7.jpeg" alt="Gestão de resíduos e organização predial" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B1522] via-transparent to-transparent opacity-80"></div>
+                <div class="absolute top-3.5 left-3.5 bg-brand-navy/85 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-bold text-sky-300">
+                  ● Organização Predial
+                </div>
+              </div>
+              <div class="p-5 sm:p-6 space-y-2.5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-base sm:text-lg font-bold text-white tracking-tight">Gestão de Resíduos & Descarte</h3>
+                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-1">
+                    Rotinas pontuais de recolhimento, higienização dos coletores e separação para manutenção do ambiente limpo e agradável.
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400 font-semibold">
+                  <span>Sustentabilidade Condominial</span>
+                  <span class="text-sky-300 font-bold">Rotina Pontual</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Indicadores de Paginação / Dots -->
+          <div id="team-dots" class="flex items-center justify-center gap-2 mt-6"></div>
+        </div>
+
+        <!-- Barra Inferior de Confiança Operacional -->
+        <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div class="flex items-center justify-center gap-3 bg-white/[0.03] p-4 rounded-2xl border border-white/10">
+            <span class="text-brand-blue font-black text-xl">01</span>
+            <div class="text-left">
+              <p class="text-xs font-bold text-white">Contratação Segura & Legal</p>
+              <p class="text-[11px] text-slate-400">Total cumprimento às leis trabalhistas</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-3 bg-white/[0.03] p-4 rounded-2xl border border-white/10">
+            <span class="text-brand-blue font-black text-xl">02</span>
+            <div class="text-left">
+              <p class="text-xs font-bold text-white">Treinamento Contínuo</p>
+              <p class="text-[11px] text-slate-400">Postura ética, discrição e cordialidade</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center gap-3 bg-white/[0.03] p-4 rounded-2xl border border-white/10">
+            <span class="text-brand-blue font-black text-xl">03</span>
+            <div class="text-left">
+              <p class="text-xs font-bold text-white">Apoio Direto ao Síndico</p>
+              <p class="text-[11px] text-slate-400">Canal direto em Itabuna e região</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- [SEÇÃO 5: SIMULADOR DE DIAGNÓSTICO & PROMOÇÃO]             -->
+    <!-- ========================================================== -->
+    <section class="py-14 sm:py-20 bg-[#F8FAFC] border-y border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <!-- CARDS SUPERIORES: SIMULADOR E BENEFÍCIOS (EM 2 COLUNAS AMPLAS) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          
+          <!-- 1. SIMULADOR DE ECONOMIA / DIAGNÓSTICO -->
+          <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-card flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-blue">Simulação Imediata</span>
+              <h3 class="text-lg sm:text-xl font-black text-brand-dark mt-1">DIAGNÓSTICO CONDOMINIAL</h3>
+              <p class="text-xs sm:text-sm text-brand-textMuted mt-1">Calcule o impacto positivo da gestão Valor Condocompany.</p>
+
+              <div class="mt-6 space-y-5">
+                <div>
+                  <div class="flex justify-between items-center text-xs sm:text-sm font-bold text-slate-700 mb-2">
+                    <span>Porte do Condomínio:</span>
+                    <span id="sim-unidades-val" class="text-brand-blue font-black text-base">60 unidades</span>
+                  </div>
+                  <input type="range" id="sim-unidades" min="10" max="250" value="60" step="5" oninput="updateSimulacao()" 
+                         class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                  <div class="bg-brand-blueLight border border-blue-200 rounded-xl p-3.5 text-center">
+                    <span class="text-[11px] text-brand-blueDark font-bold block">Inadimplência Recuperável</span>
+                    <span id="sim-economia" class="text-base sm:text-lg font-black text-brand-blueDark mt-0.5 block">R$ 5.184/mês</span>
+                  </div>
+
+                  <div class="bg-slate-100 border border-slate-200 rounded-xl p-3.5 text-center">
+                    <span class="text-[11px] text-slate-700 font-bold block">Tempo do Síndico Poupado</span>
+                    <span id="sim-horas" class="text-base sm:text-lg font-black text-brand-dark mt-0.5 block">27h livres/mês</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="openWa('Olá! Fiz a simulação no site e gostaria do diagnóstico detalhado para meu condomínio.')" 
+                    class="mt-7 w-full bg-brand-navy hover:bg-brand-navyLight text-white font-bold text-xs sm:text-sm py-3.5 rounded-xl transition-all uppercase tracking-wider">
+              SOLICITAR DIAGNÓSTICO COMPLETO
+            </button>
+          </div>
+
+          <!-- 2. BENEFÍCIOS DE ENTRADA -->
+          <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-card flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Sem Custo</span>
+              <h3 class="text-lg sm:text-xl font-black text-brand-dark mt-1">BENEFÍCIOS DE ENTRADA</h3>
+              <p class="text-xs sm:text-sm text-brand-textMuted mt-1">Tudo o que seu condomínio recebe desde o 1º dia:</p>
+
+              <div class="mt-5 space-y-3 text-xs sm:text-sm text-slate-700">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-emerald-500 font-bold text-base">✓</span>
+                  <span>Diagnóstico financeiro completo do condomínio</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="text-emerald-500 font-bold text-base">✓</span>
+                  <span>Mapeamento de inadimplência e plano de recuperação</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="text-emerald-500 font-bold text-base">✓</span>
+                  <span>Configuração de emissão de boletos com PIX Copia e Cola</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="text-emerald-500 font-bold text-base">✓</span>
+                  <span>Transição assistida da administradora anterior</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <span class="text-emerald-500 font-bold text-base">✓</span>
+                  <span>Suporte inicial para organização de assembleia</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-brand-textMuted">
+              <span>Implantação sem atrito</span>
+              <span class="text-emerald-600 font-bold text-sm sm:text-base">100% Gratuita</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3. BANNER DE CONDIÇÃO ESPECIAL COM CRONÔMETRO (SEPARADO, EMBAIXO E EM DESTAQUE MAIOR) -->
+        <div class="mt-8 sm:mt-10 bg-[#0B1522] text-white rounded-3xl p-6 sm:p-10 shadow-2xl border-2 border-brand-blue/40 relative overflow-hidden">
+          <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-16 -top-16 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Lado Esquerdo: Chamada e Condição -->
+            <div class="lg:col-span-6 text-center lg:text-left space-y-3">
+              <span class="inline-block text-[11px] font-black uppercase tracking-widest text-sky-300 bg-white/10 border border-white/15 px-3.5 py-1 rounded-full">
+                Condição Especial do Mês
+              </span>
+              <h3 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
+                Diagnóstico & Implantação Isenta
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed max-w-xl">
+                Aproveite a oportunidade por tempo limitado para modernizar o seu condomínio com isenção total na taxa de implantação da Valor Condocompany.
+              </p>
+            </div>
+
+            <!-- Lado Direito: Cronômetro Expandido + Botão de Ação -->
+            <div class="lg:col-span-6 flex flex-col items-center lg:items-end gap-5">
+              
+              <!-- Cronômetro com Dígitos Maiores -->
+              <div class="grid grid-cols-4 gap-2.5 sm:gap-4 text-center w-full max-w-lg">
+                <div class="bg-white/10 rounded-2xl p-3 sm:p-4 border border-white/15 backdrop-blur-sm shadow-inner">
+                  <span id="timer-d" class="text-2xl sm:text-4xl font-black text-sky-300 block">08</span>
+                  <span class="text-[10px] sm:text-xs uppercase font-bold tracking-wider text-slate-400 mt-1 block">Dias</span>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 sm:p-4 border border-white/15 backdrop-blur-sm shadow-inner">
+                  <span id="timer-h" class="text-2xl sm:text-4xl font-black text-sky-300 block">14</span>
+                  <span class="text-[10px] sm:text-xs uppercase font-bold tracking-wider text-slate-400 mt-1 block">Horas</span>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 sm:p-4 border border-white/15 backdrop-blur-sm shadow-inner">
+                  <span id="timer-m" class="text-2xl sm:text-4xl font-black text-sky-300 block">27</span>
+                  <span class="text-[10px] sm:text-xs uppercase font-bold tracking-wider text-slate-400 mt-1 block">Min</span>
+                </div>
+                <div class="bg-white/10 rounded-2xl p-3 sm:p-4 border border-white/15 backdrop-blur-sm shadow-inner">
+                  <span id="timer-s" class="text-2xl sm:text-4xl font-black text-emerald-400 block">36</span>
+                  <span class="text-[10px] sm:text-xs uppercase font-bold tracking-wider text-slate-400 mt-1 block">Seg</span>
+                </div>
+              </div>
+
+              <!-- Botão Maior e Proeminente -->
+              <button onclick="openWa('Olá! Gostaria de garantir a condição especial do mês com diagnóstico e implantação isenta.')" 
+                      class="w-full max-w-lg bg-brand-blue hover:bg-brand-blueHover active:scale-95 text-white font-black text-sm sm:text-base py-4 px-8 rounded-2xl transition-all shadow-blue uppercase tracking-wider flex items-center justify-center gap-3">
+                <span>GARANTIR CONDIÇÃO AGORA</span>
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- [SEÇÃO 6: DEPOIMENTOS DE CLIENTES]                         -->
+    <!-- ========================================================== -->
+    <section class="py-14 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="flex items-center justify-center gap-4 mb-10">
+          <div class="h-0.5 w-12 sm:w-20 bg-brand-blue"></div>
+          <h2 class="text-xl sm:text-2xl font-black text-brand-dark uppercase tracking-wider">
+            Depoimentos de Síndicos
+          </h2>
+          <div class="h-0.5 w-12 sm:w-20 bg-brand-blue"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="bg-[#F8FAFC] rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="text-amber-400 text-xs mb-2">★★★★★</div>
+              <p class="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
+                "A organização das contas e a baixa de inadimplência mudaram o clima do condomínio. Eu não aguentava mais o desgaste de cobrar vizinho na garagem."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 mt-4 pt-3 border-t border-slate-200">
+              <div class="w-10 h-10 rounded-full bg-brand-dark text-white font-bold flex items-center justify-center text-xs">
+                CE
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-brand-dark">Carlos Eduardo M.</h4>
+                <p class="text-[10px] text-brand-textMuted">Síndico Morador • Jardim das Palmeiras</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-[#F8FAFC] rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="text-amber-400 text-xs mb-2">★★★★★</div>
+              <p class="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
+                "Como síndico profissional, precisava de um BPO confiável. O suporte no WhatsApp responde na hora e as pastas mensais chegam prontas e auditadas."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 mt-4 pt-3 border-t border-slate-200">
+              <div class="w-10 h-10 rounded-full bg-brand-blue text-white font-bold flex items-center justify-center text-xs">
+                RS
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-brand-dark">Roberto Silveira</h4>
+                <p class="text-[10px] text-brand-textMuted">Síndico Profissional • 7 Condomínios</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-[#F8FAFC] rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="text-amber-400 text-xs mb-2">★★★★★</div>
+              <p class="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
+                "A transição da administradora antiga para a Valor Condocompany foi surpreendentemente tranquila. Nenhum boleto atrasou e a clareza dos relatórios é impecável."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 mt-4 pt-3 border-t border-slate-200">
+              <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-xs">
+                MV
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-brand-dark">Mariana Vasconcelos</h4>
+                <p class="text-[10px] text-brand-textMuted">Conselho Fiscal • Ed. Costa do Cacau</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- [SEÇÃO 7: SOBRE A EMPRESA & BANCOS HOMOLOGADOS]            -->
+    <!-- ========================================================== -->
+    <section class="py-14 sm:py-20 bg-[#F8FAFC] border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          
+          <!-- 1. SOBRE A VALOR CONDOCOMPANY -->
+          <div class="bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="mb-4">
+                <img src="assets/logo.png" alt="Valor Condocompany" class="h-9 sm:h-10 w-auto object-contain">
+              </div>
+              <h3 class="text-sm font-black text-brand-blue uppercase tracking-wider mb-2">
+                Expertise & Gestão Condominial
+              </h3>
+              <p class="text-xs sm:text-sm text-brand-textMuted leading-relaxed mb-4">
+                Com sede no Centro de Itabuna - BA, a Valor Condocompany é especializada em rotina condominial, assessoria administrativa e BPO financeiro de alta precisão.
+              </p>
+
+              <ul class="text-xs sm:text-sm text-slate-700 space-y-2 mb-6">
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold text-base">•</span> Mais de 50 condomínios atendidos na região</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold text-base">•</span> Processos digitais integrados e atendimento 100% humanizado</li>
+                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold text-base">•</span> Sede própria no Edifício Módulo Center, Sala 604</li>
+              </ul>
+            </div>
+
+            <div class="rounded-xl overflow-hidden h-36 border border-slate-200 shadow-inner">
+              <img src="assets/itabuna.jpg" alt="Itabuna Sede Valorco" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <!-- 2. BANCOS HOMOLOGADOS -->
+          <div class="bg-white rounded-2xl p-7 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <h3 class="text-base sm:text-lg font-black text-brand-dark uppercase tracking-tight mb-2">
+                Bancos Homologados
+              </h3>
+              <p class="text-xs sm:text-sm text-brand-textMuted mb-6">
+                Integração direta com as principais instituições financeiras para emissão de boletos, PIX Copia e Cola e conciliação diária automática:
+              </p>
+
+              <div class="grid grid-cols-2 gap-3 text-center text-xs sm:text-sm font-bold text-slate-700">
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:border-brand-blue transition-colors flex items-center justify-center">Banco do Brasil</div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:border-brand-blue transition-colors flex items-center justify-center">Caixa Econômica</div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:border-brand-blue transition-colors flex items-center justify-center">Bradesco</div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:border-brand-blue transition-colors flex items-center justify-center">Itaú Unibanco</div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:border-brand-blue transition-colors flex items-center justify-center">Santander</div>
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:border-brand-blue transition-colors flex items-center justify-center">Sicoob / Sicredi</div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 flex items-center justify-between">
+              <span>Boletos com registro oficial</span>
+              <span class="text-emerald-600 font-bold">PIX Integrado</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- [ÚLTIMA PARTE EM BAIXO: DÚVIDAS FREQUENTES & LOCALIZAÇÃO]   -->
+    <!-- ========================================================== -->
+    <section class="py-14 sm:py-20 bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          
+          <!-- 1. DÚVIDAS FREQUENTES (FAQ) -->
+          <div class="bg-slate-50/80 rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-brand-blue font-bold text-xs uppercase tracking-wider mb-2">
+                <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+                <span>Esclarecimentos Rápidos</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-brand-dark uppercase tracking-wider mb-4">
+                DÚVIDAS FREQUENTES (FAQ)
+              </h3>
+
+              <div class="space-y-3 text-xs sm:text-sm">
+                <details class="bg-white rounded-xl p-4 border border-slate-200/90 shadow-xs group" open>
+                  <summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center select-none">
+                    <span>É difícil mudar de administradora?</span>
+                    <span class="text-brand-blue group-open:rotate-180 transition-transform font-bold text-sm">▼</span>
+                  </summary>
+                  <p class="text-slate-600 mt-2.5 leading-relaxed text-xs sm:text-sm">
+                    Não. Cuidamos de todo o processo de migração de cadastros, histórico, saldo e conciliação bancária sem qualquer interrupção na rotina do seu condomínio.
+                  </p>
+                </details>
+
+                <details class="bg-white rounded-xl p-4 border border-slate-200/90 shadow-xs group">
+                  <summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center select-none">
+                    <span>O síndico continua com a conta bancária?</span>
+                    <span class="text-brand-blue group-open:rotate-180 transition-transform font-bold text-sm">▼</span>
+                  </summary>
+                  <p class="text-slate-600 mt-2.5 leading-relaxed text-xs sm:text-sm">
+                    Sim, 100%. A conta bancária permanece sempre em nome do condomínio. A Valorco apenas prepara os lançamentos e agendamentos, mas quem autoriza cada pagamento é exclusivamente o síndico.
+                  </p>
+                </details>
+
+                <details class="bg-white rounded-xl p-4 border border-slate-200/90 shadow-xs group">
+                  <summary class="cursor-pointer font-bold text-brand-dark flex justify-between items-center select-none">
+                    <span>Como funciona a cobrança ativa?</span>
+                    <span class="text-brand-blue group-open:rotate-180 transition-transform font-bold text-sm">▼</span>
+                  </summary>
+                  <p class="text-slate-600 mt-2.5 leading-relaxed text-xs sm:text-sm">
+                    Enviamos lembretes amigáveis com chave PIX e código de barras via WhatsApp e e-mail, reduzindo a inadimplência de forma cordial e sem desgaste com os moradores.
+                  </p>
+                </details>
+              </div>
+            </div>
+
+            <div class="pt-5 mt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
+              <span>Ainda tem dúvidas?</span>
+              <button onclick="openWa('Olá! Gostaria de tirar algumas dúvidas sobre a gestão condominial da Valorco.')" 
+                      class="text-brand-blue font-bold hover:underline">
+                Falar com consultor →
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. LOCALIZAÇÃO / MAPA DA SEDE EM ITABUNA -->
+          <div class="bg-slate-50/80 rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-brand-blue font-bold text-xs uppercase tracking-wider mb-2">
+                <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+                <span>Visite Nossa Sede</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-brand-dark uppercase tracking-wider mb-4">
+                LOCALIZAÇÃO EM ITABUNA - BA
+              </h3>
+
+              <!-- Iframe do Mapa Interativo -->
+              <div class="relative rounded-2xl overflow-hidden h-56 sm:h-64 bg-slate-200 border border-slate-300 shadow-inner">
+                <iframe src="https://maps.google.com/maps?q=Rua+Firmino+Alves+60+Itabuna+BA&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                        class="w-full h-full border-0" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+
+              <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-3.5 rounded-xl border border-slate-200 text-xs">
+                <div>
+                  <p class="font-bold text-brand-dark">Rua Firmino Alves, nº 60 – Centro, Itabuna – BA</p>
+                  <p class="text-slate-500">Ed. Módulo Center, Sala 604</p>
+                </div>
+                <a href="https://maps.google.com/?q=Rua+Firmino+Alves+60+Itabuna+BA" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-brand-dark font-bold px-3 py-2 rounded-lg text-xs transition-colors self-start sm:self-center">
+                  <span>Abrir no Maps</span>
+                  <svg class="w-3.5 h-3.5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="pt-5 mt-4 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <span class="text-xs text-slate-500">Atendimento presencial no Centro</span>
+              <button onclick="openWa('Olá! Gostaria de agendar uma reunião presencial na sede da Valor Condocompany.')" 
+                      class="w-full sm:w-auto bg-brand-navy hover:bg-brand-navyLight text-white font-bold text-xs py-2.5 px-4 rounded-xl transition-all">
+                Agendar Reunião Presencial
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- BARRA DE CHAMADA FINAL INFERIOR                            -->
+    <!-- ========================================================== -->
+    <div class="bg-[#0B1522] text-white py-4 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <div>
+          <span class="text-xs sm:text-sm font-black text-sky-300 uppercase tracking-wider">
+            PRONTO PARA PROFISSIONALIZAR SEU CONDOMÍNIO?
+          </span>
+          <p class="text-xs text-slate-300">Fale com um consultor agora e receba a proposta detalhada da Valor Condocompany.</p>
+        </div>
+
+        <button onclick="openWa('Olá! Vi a chamada final e quero a proposta personalizada.')" 
+                class="bg-brand-waGreen hover:bg-brand-waGreenHover text-white font-extrabold text-xs sm:text-sm px-6 py-2.5 rounded-xl shadow-wa transition-all flex items-center gap-2">
+          <span>Falar no WhatsApp Agora</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================== -->
+  <!-- [RODAPÉ INSTITUCIONAL COM A LOGO OFICIAL]                  -->
+  <!-- ========================================================== -->
+  <footer class="bg-[#08111C] text-slate-400 text-xs border-t border-slate-800 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div>
+          <div class="flex items-center justify-center sm:justify-start gap-3 mb-2">
+            <div class="bg-white px-3 py-1.5 rounded-xl inline-block shadow-xs">
+              <img src="assets/logo.png" alt="Valor Condocompany" class="h-7 w-auto object-contain">
+            </div>
+            <span class="text-white font-bold text-xs uppercase tracking-wider">Itabuna - BA</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Rua Firmino Alves, nº 60, Sala 604, Ed. Módulo Center, Centro • Tel: (73) 3026-6726</p>
+        </div>
+        <p class="text-[10px] text-slate-500">© 2026 Valor Condocompany. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================== -->
+  <!-- [BOTÃO FLUTUANTE DO WHATSAPP FIXO]                         -->
+  <!-- ========================================================== -->
+  <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 group">
+    
+    <button onclick="openWa('Olá! Gostaria de uma proposta de gestão para o meu condomínio.')" 
+            class="hidden sm:inline-flex items-center gap-2 bg-white text-brand-dark font-bold text-xs py-2 px-3.5 rounded-full shadow-lg border border-slate-200 group-hover:scale-105 transition-all">
+      <span class="w-2 h-2 rounded-full bg-brand-waGreen animate-pulse"></span>
+      <span>Fale com a Valor Condocompany</span>
+    </button>
+
+    <div class="relative flex items-center justify-center">
+      <div class="absolute w-full h-full rounded-full bg-brand-waGreen animate-radar pointer-events-none"></div>
+
+      <button onclick="openWa('Olá! Gostaria de uma proposta de gestão para o meu condomínio.')" 
+              aria-label="Falar no WhatsApp"
+              class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brand-waGreen hover:bg-brand-waGreenHover text-white flex items-center justify-center shadow-float active:scale-95 transition-transform">
+        <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 border-2 border-white text-[10px] font-extrabold rounded-full flex items-center justify-center text-white">
+          1
+        </span>
+        <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+</body>
+</html>
