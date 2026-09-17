@@ -613,15 +613,19 @@
         <!-- 3 CARDS LADO A LADO -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          <!-- CARD 1: SÍNDICO MORADOR -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-card hover:border-brand-blue transition-all flex flex-col justify-between">
+          <!-- CARD 1: SÍNDICO MORADOR (MAIS SOLICITADO - DESTAQUE NO AZUL DA LOGO) -->
+          <div class="bg-white rounded-2xl border-2 border-brand-blue p-5 shadow-card relative flex flex-col justify-between">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+              Mais Solicitado
+            </div>
+
             <div>
               <div class="flex items-center justify-between pb-3 border-b border-slate-100">
                 <div>
                   <h3 class="font-black text-brand-dark text-base">SÍNDICO MORADOR</h3>
                   <p class="text-xs text-brand-textMuted">Tranquilidade e Fim da Sobrecarga</p>
                 </div>
-                <span class="text-xs font-bold bg-slate-100 text-brand-gray px-2 py-1 rounded-md">Paz na Gestão</span>
+                <span class="text-xs font-bold bg-brand-blueLight text-brand-blue px-2 py-1 rounded-md">Paz na Gestão</span>
               </div>
 
               <div class="my-4 rounded-xl overflow-hidden h-44 relative group">
@@ -641,45 +645,40 @@
 
             <div class="mt-6 pt-4 border-t border-slate-100">
               <button onclick="openWa('Olá! Sou síndico morador e gostaria de detalhes sobre o plano para condomínios residenciais.')" 
-                      class="w-full bg-brand-navy hover:bg-brand-navyLight text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 uppercase">
+                      class="w-full bg-brand-blue hover:bg-brand-blueHover text-white font-extrabold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 uppercase shadow-blue">
                 <span>VER DETALHES NO WHATSAPP</span>
               </button>
             </div>
           </div>
 
-          <!-- CARD 2: SÍNDICO PROFISSIONAL (DESTAQUE NO AZUL DA LOGO) -->
-          <div class="bg-white rounded-2xl border-2 border-brand-blue p-5 shadow-card relative flex flex-col justify-between">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-blue text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
-              Mais Solicitado
-            </div>
-
+          <!-- CARD 2: SÍNDICO PROFISSIONAL -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-card hover:border-brand-blue transition-all flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between pb-3 border-b border-slate-100">
                 <div>
                   <h3 class="font-black text-brand-dark text-base">SÍNDICO PROFISSIONAL</h3>
                   <p class="text-xs text-brand-textMuted">Retaguarda Operacional & BPO</p>
                 </div>
-                <span class="text-xs font-bold bg-brand-blueLight text-brand-blue px-2 py-1 rounded-md">Escala</span>
+                <span class="text-xs font-bold bg-slate-100 text-brand-gray px-2 py-1 rounded-md">Escala</span>
               </div>
 
               <div class="my-4 rounded-xl overflow-hidden h-44 relative group">
-                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/segment-multicondominios.jpg" alt="Gestão Multicondomínios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
+                <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/segment-multicondominios-v2.jpg" alt="Gestão Multicondomínios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-[0.95]" />
                 <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] font-bold px-2.5 py-1 rounded-md backdrop-blur-xs">
                   Gestão Multicondomínios
                 </div>
               </div>
 
               <ul class="text-xs text-slate-700 space-y-2">
-                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Escale sua carteira sem aumentar custos fixos</li>
-                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> BPO financeiro rigoroso com conciliação diária</li>
-                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Pastas digitais padronizadas entregues no prazo</li>
-                <li class="flex items-center gap-2"><span class="text-brand-blue font-bold">•</span> Backoffice jurídico ágil para cobranças e editais</li>
+                <li class="flex items-start gap-2"><span class="text-brand-blue font-bold mt-0.5">•</span> <span>Escale sua carteira sem aumentar custos fixos</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-blue font-bold mt-0.5">•</span> <span>BPO financeiro rigoroso com conciliação diária</span></li>
+                <li class="flex items-start gap-2"><span class="text-brand-blue font-bold mt-0.5">•</span> <span>Pastas digitais padronizadas entregues no prazo</span></li>
               </ul>
             </div>
 
             <div class="mt-6 pt-4 border-t border-slate-100">
               <button onclick="openWa('Olá! Sou síndico profissional e gostaria de conhecer as condições especiais para múltiplos condomínios.')" 
-                      class="w-full bg-brand-blue hover:bg-brand-blueHover text-white font-extrabold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 uppercase shadow-blue">
+                      class="w-full bg-brand-navy hover:bg-brand-navyLight text-white font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 uppercase">
                 <span>CONTRATAR BPO PROFISSIONAL</span>
               </button>
             </div>
