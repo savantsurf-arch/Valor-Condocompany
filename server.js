@@ -54,10 +54,16 @@ function handler(req, res) {
 
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    const isHtml = ext === '.html' || ext === '';
+    const cacheControl = isHtml 
+      ? 'no-cache, no-store, must-revalidate, max-age=0' 
+      : 'public, max-age=3600';
 
     res.writeHead(200, {
       'Content-Type': contentType,
-      'Cache-Control': 'public, max-age=3600',
+      'Cache-Control': cacheControl,
+      'Pragma': isHtml ? 'no-cache' : 'public',
+      'Expires': isHtml ? '0' : undefined,
       'Access-Control-Allow-Origin': '*'
     });
     res.end(data);
