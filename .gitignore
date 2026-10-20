@@ -7,3 +7,7 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Build cPanel
+dist_cpanel/
+*.zip

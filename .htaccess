@@ -1,0 +1,45 @@
+# ==============================================================
+# CONFIGURAÇÃO DE ALTA PERFORMANCE & SEGURANÇA PARA CPANEL/APACHE
+# VALOR CONDOCOMPANY
+# ==============================================================
+
+# Forçar HTTPS
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Charset padrão UTF-8
+AddDefaultCharset UTF-8
+
+# Habilitar Compressão GZIP (mod_deflate)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache de Navegador (mod_expires / mod_headers)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # HTML sempre fresco (sem cache longo para atualizações instantâneas)
+  ExpiresByType text/html "access plus 0 seconds"
+  
+  # Imagens e Mídias (1 mês de cache)
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 month"
+  
+  # CSS e JS (1 semana)
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Prevenir iframe clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Prevenir MIME sniffing
+  Header always set X-Content-Type-Options "nosniff"
+</IfModule>
