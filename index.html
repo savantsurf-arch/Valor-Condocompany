@@ -236,22 +236,19 @@
 
   <main>
     <!-- ========================================================== -->
-    <!-- [SEÇÃO 1: HERO COM VÍDEO DO CONDOMÍNIO (SEM MARCA D'ÁGUA)] -->
+    <!-- [SEÇÃO 1: HERO COM IMAGEM DE FUNDO DO CONDOMÍNIO]          -->
     <!-- ========================================================== -->
     <section class="relative pt-24 sm:pt-28 pb-14 sm:pb-20 bg-slate-950 text-white overflow-hidden">
       
-      <!-- VÍDEO DE FUNDO DO HERO (SEM ÁUDIO, SEM MARCA D'ÁGUA, REPRODUÇÃO CONTÍNUA) -->
+      <!-- IMAGEM DE FUNDO DO HERO -->
       <div class="absolute inset-0 overflow-hidden pointer-events-none -z-0">
-        <video autoplay muted loop playsinline poster="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/hero-poster.jpg"
-               onerror="if(this.poster && !this.dataset.posterFallback){this.dataset.posterFallback='1';this.poster='https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/hero-poster.jpg';}"
-               class="w-full h-full object-cover object-center filter brightness-[0.80] contrast-[1.08]">
-          <source src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/hero-video.mp4" type="video/mp4">
-          <source src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/hero-video.mp4" type="video/mp4">
-        </video>
+        <img src="https://cdn.jsdelivr.net/gh/savantsurf-arch/Valor-Condocompany@main/assets/hero-bg-condominio.jpg"
+             alt="Condomínio Residencial Moderno"
+             class="w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.05]" />
         
         <!-- Máscara Neutra e Suave de Legibilidade (Sem fundo azul pesado) -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/30"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/35"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/40"></div>
       </div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
